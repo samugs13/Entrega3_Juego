@@ -15,7 +15,7 @@
   "license": "Unlicense",
   "info": {
     "githubURL": "CORE-2020/Entrega3_juego",
-    "serverUrl": "http://autocorector.dit.upm.es/",
+    "serverUrl": "https://autocorector.dit.upm.es/",
     "courseId": "8249",
     "assignmentId": "76450"
   }
