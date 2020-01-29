@@ -7,7 +7,7 @@
 
 # Entrega 3 - Juego de disparos
 
-Versión: 27 de Enero de 2020
+Versión: 29 de Enero de 2020
 
 ## Objetivo
 
@@ -74,7 +74,7 @@ Se pide modificar el código proporcionado para lograr tres funcionalidades nuev
 
 - Registro de los **puntos conseguidos** por el usuario. Cada vez que convierta a un oponente en estrella debe incrementar el número de puntos en una unidad.
 - El personaje principal debe contar con **tres vidas**. Si es alcanzado por un disparo, en vez de perder, el número de vidas disminuirá en una unidad, otorgándole una nueva oportunidad para ganar. Si el número de vidas llega a cero, se termina el juego.
-- Si el jugador consigue disparar al oponente (triángulo) y convertirlo en estrella, se le presentará una **oponente final** más poderoso (pentágono). Éste se moverá al **doble de velocidad** que el triángulo y el tiempo mínimo entre disparos será **medio segundo** en vez de uno.
+- Si el jugador consigue disparar al oponente (triángulo) y convertirlo en estrella, se le presentará una **oponente final** más poderoso (pentágono). Éste se moverá al **doble de velocidad** que el triángulo.
 
 Para implementar las tres funcionalidades debes seguir los siguientes pasos:
 
@@ -84,7 +84,7 @@ Para implementar las tres funcionalidades debes seguir los siguientes pasos:
 4. Modificar el código del método _die_ de la clase _Player_ para que reste una vida cada vez que al jugador le alcance un disparo. Sólo debe morir si el nº de vidas es cero tras la resta.
 5. Añadir el código necesario para pintar la puntuación y las vidas en la pantalla del juego en todo momento. Para ello crea una lista (etiqueta ul de HTML) con dos elementos (etiqueta li). El primero, con id &quot;scoreli&quot;, mostrará la puntuación con el siguiente formato:  ``Score: x``, siendo ``x`` el valor del atributo _score_ del juego. El segundo, con id ``livesli``, mostrará el nº de vidas con el siguiente formato: ``Lives: y``, siendo ``y`` el valor del atributo _lives_ del jugador.
 6. Crear una clase nueva llamada _Boss_ en un nuevo fichero llamado Boss.js (no te olvides de importarlo en game.html). Esta clase debe heredar los métodos y atributos necesarios de la clase _Opponent_ sobreescribiendo aquellos que sean necesarios para lograr la funcionalidad requerida. Para representar al jefe final puedes usar las imágenes ``jefe.png`` y ``jefe_muerto.png`` de la carpeta assets.
-7. Modificar el código necesario para que cuando el jugador consiga matar al triángulo, le aparezca el desafío final. Si consigue derrotar al jefe final ganará la partida y aparecerá la imagen ``you_win.jpg`` de la carpeta assets, en vez de ``game_over.jpg``.
+7. Modificar el código necesario para que cuando el jugador consiga matar al triángulo, le aparezca el desafío final. Si consigue derrotar al jefe final ganará la partida y aparecerá la imagen ``you_win.png`` de la carpeta assets, en vez de ``game_over.png``.
 8. Subir dicha aplicación a una cuenta de [http://neocities.org](http://neocities.org) (crearla si no se tiene) para comprobar como se ve en un servidor remoto.
 
 ## Prueba de la práctica 
@@ -131,4 +131,4 @@ La herramienta de autocorrección preguntará por el correo del alumno y el toke
 
 Si pasa todos los tests se dará la máxima puntuación.
 
-**¡Cuidado! Una vez enviadas, tanto la entrega, como la evaluación, no se pueden cambiar.**   
+
