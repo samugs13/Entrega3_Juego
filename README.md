@@ -7,7 +7,7 @@
 
 # Entrega 3 - Juego de disparos
 
-Versión: 29 de Enero de 2020
+Versión: 12 de Febrero de 2020
 
 ## Objetivo
 
@@ -61,10 +61,10 @@ El método _start_ crea los personajes, pinta el juego según el tamaño de la p
 
 Para poder manejar el personaje principal del juego con las flechas del teclado o con la pantalla táctil debemos hacer uso de los eventos que nos proporciona el navegador para este propósito. En el método _start_ de la clase _Game_, inicializamos los escuchadores de eventos necesarios:
 
-- **keydown** : Se llama cuando el usuario pulsa una tecla. Guarda la tecla pulsada en el atributo _keyPressed_ de _Game._
+- **keydown** : Se llama cuando el usuario pulsa una tecla. Guarda la tecla pulsada en el atributo _keyPressed_ de _Game_.
 - **keyup** : Se llama cuando el usuario deja de pulsar una tecla. Elimina el contenido del atributo _keyPressed_ de _Game._
 - **touchstart** : Se llama cuando el usuario toca la pantalla. Guarda la posición horizontal (x) donde el usuario ha tocado en el atributo _xDown_ de _Game_.
-- **touchmove** : Se llama cuando el usuario arrastra el dedo por la pantalla. Elimina el contenido del atributo _xDown_ de _Game._
+- **touchmove** : Se llama cuando el usuario arrastra el dedo por la pantalla. Elimina el contenido del atributo _xDown_ de _Game_.
 
 Como hemos visto antes, cada 50ms se llama al método _update_ de _Game_. Este método comprueba el valor de _xDown_ y _keyPressed_ para actualizar la posición del personaje principal en función de las acciones del usuario.
 
@@ -85,7 +85,7 @@ Para implementar las tres funcionalidades debes seguir los siguientes pasos:
 5. Añadir el código necesario para pintar la puntuación y las vidas en la pantalla del juego en todo momento. Para ello crea una lista (etiqueta ul de HTML) con dos elementos (etiqueta li). El primero, con id &quot;scoreli&quot;, mostrará la puntuación con el siguiente formato:  ``Score: x``, siendo ``x`` el valor del atributo _score_ del juego. El segundo, con id ``livesli``, mostrará el nº de vidas con el siguiente formato: ``Lives: y``, siendo ``y`` el valor del atributo _lives_ del jugador.
 6. Crear una clase nueva llamada _Boss_ en un nuevo fichero llamado Boss.js (no te olvides de importarlo en game.html). Esta clase debe heredar los métodos y atributos necesarios de la clase _Opponent_ sobreescribiendo aquellos que sean necesarios para lograr la funcionalidad requerida. Para representar al jefe final puedes usar las imágenes ``jefe.png`` y ``jefe_muerto.png`` de la carpeta assets.
 7. Modificar el código necesario para que cuando el jugador consiga matar al triángulo, le aparezca el desafío final. Si consigue derrotar al jefe final ganará la partida y aparecerá la imagen ``you_win.png`` de la carpeta assets, en vez de ``game_over.png``.
-8. Subir dicha aplicación a una cuenta de [http://neocities.org](http://neocities.org) (crearla si no se tiene) para comprobar como se ve en un servidor remoto.
+
 
 ## Prueba de la práctica 
 
