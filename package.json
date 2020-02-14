@@ -2,12 +2,6 @@
   "name": "CORE-2020-Entrega3_juego",
   "version": "1.0.1",
   "description": "CORE-2020/Entrega3_juego",
-  "main": "main.js",
-  "scripts": {
-    "start": "node main.js",
-    "upload": "node scripts/launcher.js upload",
-    "checks": "node scripts/launcher.js"
-  },
   "keywords": [
     "CORE"
   ],
