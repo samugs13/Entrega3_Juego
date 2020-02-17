@@ -7,7 +7,7 @@
 
 # Entrega 3 - Juego de disparos
 
-Versión: 14 de Febrero de 2020
+Versión: 17 de Febrero de 2020
 
 ## Objetivo
 
