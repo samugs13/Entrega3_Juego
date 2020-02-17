@@ -49,7 +49,12 @@ En este código, para modelar cada uno de los elementos del juego empleamos una 
 -  **Shot** : Disparo de un _Character_. Hereda de la clase _Entity_
 -  **Game** : El propio juego
 
-En el propio código están documentados todos los atributos y métodos de estas clases con detalle.
+En el propio código están documentados todos los atributos y métodos de estas clases con detalle. 
+El siguiente diagrama muestra la jerarquía de herencia de clases:
+
+<p align="center">
+  <img width="495" height="591" src="https://raw.githubusercontent.com/CORE-2020/Entrega3_juego/master/assets/clases.png">
+</p>
 
 ## Comienzo y actualización del juego
 
