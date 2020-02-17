@@ -10,7 +10,12 @@ const T_TEST = 2 * 60; // Time between tests (seconds)
 const browser = new Browser({waitDuration: 100, silent: true});
 const path_assignment = path.resolve(path.join(__dirname, "../index.html"));
 const URL = "file://"+path_assignment.replace("%", "%25");
-
+const showBoss = (game) => {
+    game.shoot(game.player);
+    game.playerShots[0].x = game.opponent.x + 5;
+    game.playerShots[0].y = game.opponent.y + game.opponent.height + 10;
+    game.render();
+}
 //TESTS
 describe("Juego", function () {
 
@@ -175,11 +180,12 @@ describe("Juego", function () {
             this.msg_err = "No se encuentra la instancia de 'Game' en el JavaScript";
             const { game } = browser.window;
             this.msg_err = "Ha fallado el método 'die' del jugador";
-            game.opponent.die();
+            
+            showBoss(game)
             await browser.wait({ duration: 3000 });
             this.msg_ok = "El 'Boss' aparece tras matar al oponente";
             this.msg_err = "El 'Boss' NO aparece tras matar al oponente";
-            game.opponent.constructor.name.should.be.equal("Boss");
+            browser.queryAll(".Boss").length.should.be.equal(1);
         }
 
     });
@@ -199,12 +205,11 @@ describe("Juego", function () {
 
             this.msg_err = "No se encuentra la instancia de 'Game' en el JavaScript";
             const { game } = browser.window;
+            this.msg_err = "No se encuentra la clase 'Boss'";
+            const boss = browser.evaluate("new Boss(game)");
             this.msg_err = "El oponente no tiene atributo 'speed'";
             const opponentSpeed = game.opponent.speed;
-            this.msg_err = "Ha fallado el método 'die' del oponente";
-            game.opponent.die();
-            await browser.wait({ duration: 3000 });
-            const bossSpeed = game.opponent.speed;
+            const bossSpeed = boss.speed;
             this.msg_ok = "El 'Boss' se mueve al doble de velocidad que el oponente";
             this.msg_err =  "El 'Boss' NO se mueve al doble de velocidad que el oponente";
             bossSpeed.should.be.equal(opponentSpeed*2);
@@ -229,10 +234,10 @@ describe("Juego", function () {
             this.msg_err = "No se encuentra la instancia de 'Game' en el JavaScript";
             const { game } = browser.window;
             this.msg_err = "Ha fallado el método 'die' del oponente";
-            game.opponent.die();
-            await browser.wait({ duration: 3000 });
-            game.opponent.die();
-            await browser.wait({ duration: 3000 });
+            showBoss(game);
+            await browser.wait({ duration: 2500 });
+            showBoss(game);
+            await browser.wait({ duration: 2500 });
             this.msg_err =  "No aparece la imagen de 'You win' al ganar";
             this.msg_ok = "La imagen de 'You win' aparece al ganar el juego";
             const youWin = browser.html('img').match(/you_win\.png/).length > 0;
