@@ -43,11 +43,11 @@ $ cd Entrega3_juego
 En este código, para modelar cada uno de los elementos del juego empleamos una clase JavaScript con sus métodos y atributos, los cuales se describen a continuación:
 
 -  **Entity:** Cada uno de los elementos que se pintan en el juego
--  **Character** : Cada uno de los personajes del juego, es decir, aquellos elementos que tienen "vida". Hereda de la clase _Entity_
--  **Player** : Personaje principal del juego. Hereda de la clase _Character_
--  **Opponent** : Forma a la que tenemos que convertir en estrella. Hereda de la clase _Character_
--  **Shot** : Disparo de un _Character_. Hereda de la clase _Entity_
--  **Game** : El propio juego
+-  **Character**: Cada uno de los personajes del juego, es decir, aquellos elementos que tienen "vida". Hereda de la clase _Entity_
+-  **Player**: Personaje principal del juego. Hereda de la clase _Character_
+-  **Opponent**: Forma a la que tenemos que convertir en estrella. Hereda de la clase _Character_
+-  **Shot**: Disparo de un _Character_. Hereda de la clase _Entity_
+-  **Game**: El propio juego
 
 En el propio código están documentados todos los atributos y métodos de estas clases con detalle. 
 El siguiente diagrama muestra la jerarquía de herencia de clases:
