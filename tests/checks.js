@@ -234,10 +234,16 @@ describe("Juego", function () {
             this.msg_err = "No se encuentra la instancia de 'Game' en el JavaScript";
             const { game } = browser.window;
             this.msg_err = "Ha fallado el método 'die' del oponente";
-            showBoss(game);
-            await browser.wait({ duration: 2500 });
-            showBoss(game);
-            await browser.wait({ duration: 2500 });
+            try {
+                showBoss(game);
+                await browser.wait({ duration: 2500 });
+                showBoss(game);
+                await browser.wait({ duration: 2500 });
+
+            } catch (e) {
+                game.endGame(true);
+                await browser.wait({ duration: 2500 });
+            }
             this.msg_err =  "No aparece la imagen de 'You win' al ganar";
             this.msg_ok = "La imagen de 'You win' aparece al ganar el juego";
             const youWin = browser.html('img').match(/you_win\.png/).length > 0;
