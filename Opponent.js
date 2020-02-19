@@ -3,7 +3,7 @@
  */
 class Opponent extends Character {
     /**
-     * @param game {Game} La instancia del juego al que pertenece el personaje
+     * @param game {Game} La instancia del juego al que pertenece el oponente
      */
     constructor (game) {
         const height = OPPONENT_HEIGHT * game.width / 100,

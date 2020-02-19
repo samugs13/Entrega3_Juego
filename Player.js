@@ -5,7 +5,7 @@
 class Player extends Character {
     /**
      * Inicializa un jugador
-     * @param game {Game} La instancia del juego al que pertenece el personaje
+     * @param game {Game} La instancia del juego al que pertenece el jugador
      */
     constructor (game) {
         const height = PLAYER_HEIGHT * game.width / 100,
