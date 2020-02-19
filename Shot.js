@@ -28,7 +28,7 @@ class Shot extends Entity {
         }
         if (this.y < 0 || this.y > this.game.height) {
             this.game.removeShot(this);
-            document.body.removeChild(this.myImage);
+            document.body.removeChild(this.image);
         }
     }
 }

@@ -45,12 +45,12 @@ class Player extends Character {
     /**
      * Mata al jugador
      */
-    die() {
+    collide() {
         if (!this.dead) {
             setTimeout(() => {
                 this.game.endGame();
             }, 2000);
-            super.die();
+            super.collide();
         }
     }
 }

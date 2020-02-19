@@ -62,13 +62,13 @@ shoot () {
     /**
      * Mata al oponente
      */
-    die() {
+    collide() {
         
         if (!this.dead) {
             setTimeout(() => {
                 this.game.removeOpponent();
             }, 2000);
-            super.die();
+            super.collide();
         }
 
     }
