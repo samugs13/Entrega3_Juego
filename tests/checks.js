@@ -59,6 +59,7 @@ describe("Juego", function () {
             if (error_nav) {
                  this.msg_err = `Error al abrir el fichero ${path_assignment}`;
             }
+            await browser.wait({ duration: 500 });
             this.msg_ok = `Instancia de clase 'Game' iniciada`;
             this.msg_err = `No se encuentra instancia de la clase 'Game' iniciada`;
             browser.window.game.started.should.be.equal(true);
@@ -153,6 +154,7 @@ describe("Juego", function () {
             this.msg_err = "La funcionalidad de 'Lives' no ha sido implementada";
             const livesInitial = parseInt(browser.html("li#livesli").match(/Lives: ?(\d+)/)[1]);
             this.msg_err = "No se encuentra la instancia de 'Game' en el JavaScript";
+            await browser.wait({ duration: 500 });
             const { game } = browser.window;
             this.msg_err = "Ha fallado el método 'die' del jugador";
             game.player.die();
@@ -178,6 +180,7 @@ describe("Juego", function () {
                 Recibido: ${browser.text('body')}`;
             }
             this.msg_err = "No se encuentra la instancia de 'Game' en el JavaScript";
+            await browser.wait({ duration: 500 });
             const { game } = browser.window;
             this.msg_err = "Ha fallado el método 'die' del jugador";
             
@@ -204,6 +207,7 @@ describe("Juego", function () {
            }
 
             this.msg_err = "No se encuentra la instancia de 'Game' en el JavaScript";
+            await browser.wait({ duration: 500 });
             const { game } = browser.window;
             this.msg_err = "No se encuentra la clase 'Boss'";
             const boss = browser.evaluate("new Boss(game)");
@@ -232,6 +236,7 @@ describe("Juego", function () {
            }
 
             this.msg_err = "No se encuentra la instancia de 'Game' en el JavaScript";
+            await browser.wait({ duration: 500 });
             const { game } = browser.window;
             this.msg_err = "Ha fallado el método 'die' del oponente";
             try {
