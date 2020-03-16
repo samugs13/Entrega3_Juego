@@ -7,7 +7,7 @@
 
 # Entrega 3 - Juego de disparos
 
-Versión: 19 de Febrero de 2020
+Versión: 16 de Marzo de 2020
 
 ## Objetivo
 
@@ -84,7 +84,7 @@ Se pide modificar el código proporcionado para lograr tres funcionalidades nuev
 Para implementar las tres funcionalidades debes seguir los siguientes pasos:
 
 1. Añadir un atributo nuevo _score_ a la clase _Game_ que refleje la puntuación (inicialmente 0).
-2. Modificar el código del método _die_ de la clase _Opponent_ para que sume un punto a _score_ cada vez que se dispara a un triángulo.
+2. Modificar el código del método _collide_ de la clase _Opponent_ para que sume un punto a _score_ cada vez que se dispara a un triángulo.
 3. Añadir un atributo nuevo _lives_ a la clase _Player_ que valga 3 inicialmente. Puedes definir el nº de vidas inicial en una constante en main.js.
 4. Modificar el código del método _collide_ de la clase _Player_ para que reste una vida cada vez que al jugador le alcance un disparo mientras esté vivo.
 	- Si al jugador le quedan vidas, debe morirse durante dos segundos (llamando al método `collide` de su superclase _Character_) y renacer al cabo de ese tiempo. Para ello, el atributo `src` de `this.image` debe recuperar su valor original (el de `this.myImage` y poner a `false` el atributo `this.dead`.
