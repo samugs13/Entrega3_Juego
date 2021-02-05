@@ -128,8 +128,8 @@ describe("Juego", function () {
             const scoreInitial = parseInt(browser.html("li#scoreli").match(/Score: ?(\d+)/)[1]);
             this.msg_err = "No se encuentra la instancia de 'Game' en el JavaScript";
             const { game } = browser.window;
-            this.msg_err = "Ha fallado el método 'die' del oponente";
-            game.opponent.die();
+            this.msg_err = "Ha fallado el método 'collide' del oponente";
+            game.opponent.collide();
             await browser.wait({ duration: 2500 });
             const scoreFinal = parseInt(browser.html("li#scoreli").match(/Score: ?(\d+)/)[1]);
             this.msg_ok = "El campo 'Score' ha aumentado tras disparar al oponente";
@@ -156,8 +156,8 @@ describe("Juego", function () {
             this.msg_err = "No se encuentra la instancia de 'Game' en el JavaScript";
             await browser.wait({ duration: 500 });
             const { game } = browser.window;
-            this.msg_err = "Ha fallado el método 'die' del jugador";
-            game.player.die();
+            this.msg_err = "Ha fallado el método 'collide' del jugador";
+            game.player.collide();
             await browser.wait({ duration: 1000 });
             const livesFinal = parseInt(browser.html("li#livesli").match(/Lives: ?(\d+)/)[1]);
             this.msg_ok = "El jugador ha perdido una vida tras ser disparado";
@@ -182,7 +182,7 @@ describe("Juego", function () {
             this.msg_err = "No se encuentra la instancia de 'Game' en el JavaScript";
             await browser.wait({ duration: 500 });
             const { game } = browser.window;
-            this.msg_err = "Ha fallado el método 'die' del jugador";
+            this.msg_err = "Ha fallado el método 'collide' del jugador";
             
             showBoss(game)
             await browser.wait({ duration: 3000 });
@@ -238,7 +238,7 @@ describe("Juego", function () {
             this.msg_err = "No se encuentra la instancia de 'Game' en el JavaScript";
             await browser.wait({ duration: 500 });
             const { game } = browser.window;
-            this.msg_err = "Ha fallado el método 'die' del oponente";
+            this.msg_err = "Ha fallado el método 'collide' del oponente";
             try {
                 showBoss(game);
                 await browser.wait({ duration: 2500 });

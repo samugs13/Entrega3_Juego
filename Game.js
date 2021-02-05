@@ -29,6 +29,9 @@ class Game {
             window.addEventListener("keyup", (e) => this.checkKey(e, false));
             window.addEventListener("touchstart", (e) => this.handleTouchStart(e, true));
             window.addEventListener("touchmove", (e) => this.handleTouchMove(e, false));
+            document.getElementById("pause").addEventListener("click", () => {
+                this.pauseOrResume();
+            });
             this.started = true;
             this.width = window.innerWidth;
             this.height = window.innerHeight; 
@@ -80,7 +83,10 @@ class Game {
      * Elimina al oponente del juego
      */
     removeOpponent () {
-        this.opponent = undefined;
+        if (this.opponent) {
+            document.body.removeChild(this.opponent.image);
+        }
+        this.opponent = new Opponent(this);
     }
 
     /**
@@ -159,7 +165,7 @@ class Game {
             impact = impact || this.hasCollision(this.player, this.opponentShots[i]);
         }
         if (impact || this.hasCollision(this.player, this.opponent)) {
-            this.player.die();
+            this.player.collide();
         }
         let killed = false;
 
@@ -167,7 +173,7 @@ class Game {
             killed = killed || this.hasCollision(this.opponent, this.playerShots[i]);
         }
         if (killed) {
-            this.opponent.die();
+            this.opponent.collide();
         }
     }
 

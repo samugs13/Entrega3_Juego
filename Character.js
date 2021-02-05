@@ -23,12 +23,9 @@ class Character extends Entity {
     /**
      * Mata a un personaje
      */
-    die() {
-        this.myImage.src = this.myImageDead;
+    collide() {
+        this.image.src = this.myImageDead;
         this.dead = true;
-        setTimeout(() => {
-            document.body.removeChild(this.myImage);
-        }, 2000);
     }
 }
 

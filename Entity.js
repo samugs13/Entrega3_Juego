@@ -19,22 +19,23 @@ class Entity {
         this.x = x;
         this.y = y;
         this.speed = speed;
-        this.myImage = new Image();
-        this.myImage.src = myImage;
-        this.myImage.className =  this.constructor.name;
-        this.myImage.style.position = "absolute";
-        this.myImage.style.height = this.height === "auto" ? "auto" : `${this.height}px`;
-        this.myImage.style.width = this.width === "auto" ? "auto" : `${this.width}px`;
-        this.myImage.style.top = `${this.y}px`;
-        this.myImage.style.left = `${this.x}px`;
-        document.body.appendChild(this.myImage);
+        this.myImage = myImage;
+        this.image = new Image();
+        this.image.src = this.myImage;
+        this.image.className =  this.constructor.name;
+        this.image.style.position = "absolute";
+        this.image.style.height = this.height === "auto" ? "auto" : `${this.height}px`;
+        this.image.style.width = this.width === "auto" ? "auto" : `${this.width}px`;
+        this.image.style.top = `${this.y}px`;
+        this.image.style.left = `${this.x}px`;
+        document.body.appendChild(this.image);
     }
 
     /**
      * Actualiza la posición del elemento en la pantalla
      */
     render () {
-        this.myImage.style.top = `${this.y}px`;
-        this.myImage.style.left = `${this.x}px`;
+        this.image.style.top = `${this.y}px`;
+        this.image.style.left = `${this.x}px`;
     }
 }

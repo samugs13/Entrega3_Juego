@@ -33,8 +33,5 @@ var game;
 document.addEventListener("DOMContentLoaded", () => {
         game = new Game();
         game.start();
-        document.getElementById("pause").addEventListener("click", (e) => {
-            game.pauseOrResume();
-        });
     }
 );

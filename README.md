@@ -7,7 +7,7 @@
 
 # Entrega 3 - Juego de disparos
 
-Versión: 19 de Febrero de 2020
+Versión: 16 de Marzo de 2020
 
 ## Objetivo
 
@@ -84,15 +84,15 @@ Se pide modificar el código proporcionado para lograr tres funcionalidades nuev
 Para implementar las tres funcionalidades debes seguir los siguientes pasos:
 
 1. Añadir un atributo nuevo _score_ a la clase _Game_ que refleje la puntuación (inicialmente 0).
-2. Modificar el código del método _die_ de la clase _Opponent_ para que sume un punto a _score_ cada vez que se dispara a un triángulo.
+2. Modificar el código del método _collide_ de la clase _Opponent_ para que sume un punto a _score_ cada vez que se dispara a un triángulo.
 3. Añadir un atributo nuevo _lives_ a la clase _Player_ que valga 3 inicialmente. Puedes definir el nº de vidas inicial en una constante en main.js.
-4. Modificar el código del método _die_ de la clase _Player_ para que reste una vida cada vez que al jugador le alcance un disparo.
-	- Si al jugador le quedan vidas, debe morirse durante dos segundos y renacer. Para ello, debe cambiar su imagen por la de ``bueno_muerto.png`` y poner `this.dead = true`. Para renacer, debe recuperar su imagen original y poner `this.dead = false`.
-	- Si al jugador no le quedan vidas, debe morirse definitivamente.
+4. Modificar el código del método _collide_ de la clase _Player_ para que reste una vida cada vez que al jugador le alcance un disparo mientras esté vivo.
+	- Si al jugador le quedan vidas, debe morirse durante dos segundos (llamando al método `collide` de su superclase _Character_) y renacer al cabo de ese tiempo. Para ello, el atributo `src` de `this.image` debe recuperar su valor original (el de `this.myImage` y poner a `false` el atributo `this.dead`.
+	- Si al jugador no le quedan vidas, debe morirse definitivamente (llamando al método `collide` de su superclase _Character_) y terminar el juego llamando al método `endGame` del juego.
 5. Añadir el código necesario para pintar la puntuación y las vidas en la pantalla del juego en todo momento. Para ello crea una lista (etiqueta ul de HTML) con dos elementos (etiqueta li). El primero, con id &quot;scoreli&quot;, mostrará la puntuación con el siguiente formato:  ``Score: x``, siendo ``x`` el valor del atributo _score_ del juego. El segundo, con id ``livesli``, mostrará el nº de vidas con el siguiente formato: ``Lives: y``, siendo ``y`` el valor del atributo _lives_ del jugador. Para actualizar el HTML con los valores de puntuación y vidas utiliza el método `innerHTML` del elemento HTML correspondiente (es importante no utilizar el método `innerText` puesto que es incompatible con el autoCOREctor).
-6. Crear una clase nueva llamada _Boss_ en un nuevo fichero llamado Boss.js (no te olvides de importarlo en `index.html`). Esta clase debe heredar los métodos y atributos necesarios de la clase _Opponent_ sobreescribiendo aquellos que sean necesarios para lograr la funcionalidad requerida. Para representar al jefe final puedes usar las imágenes ``jefe.png`` y ``jefe_muerto.png`` de la carpeta assets.
-7. Modificar el código necesario para que cuando el jugador consiga matar al triángulo, le aparezca el desafío final. Es decir, el atributo opponent de la instancia de ``Game`` debe contener un objeto ``Boss`` cuando el jugador derrote al oponente inicial. 
-8. Modificar el código de la función ``endGame`` (no modificar la cabecera) para que, si el jugador consigue derrotar al jefe final gane la partida aparezca la imagen ``you_win.png`` de la carpeta assets, en vez de ``game_over.png``.
+6. Crear una clase nueva llamada _Boss_ en un nuevo fichero llamado ``Boss.js`` (no te olvides de importarlo en `index.html`). Esta clase debe heredar los métodos y atributos necesarios de la clase _Opponent_ sobreescribiendo aquellos que sean necesarios para lograr la funcionalidad requerida. Para representar al jefe final puedes usar las imágenes ``jefe.png`` y ``jefe_muerto.png`` de la carpeta assets.
+7. Modificar el código necesario en el método `removeOpponent` de _Game_ para que cuando el jugador consiga matar al triángulo, le aparezca el desafío final. Es decir, el atributo opponent de la instancia de _Game_ debe contener un objeto _Boss_`cuando el jugador derrote al oponente inicial. 
+8. Modificar el código de la función ``endGame`` (no modificar la cabecera) para que, si el jugador consigue derrotar al jefe final, es decir, gane la partida con mas de 0 vidas, aparezca la imagen ``you_win.png`` de la carpeta assets, en vez de ``game_over.png``.
 
 
 ## Prueba de la práctica 

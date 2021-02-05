@@ -3,7 +3,7 @@
  */
 class Opponent extends Character {
     /**
-     * @param game {Game} La instancia del juego al que pertenece el personaje
+     * @param game {Game} La instancia del juego al que pertenece el oponente
      */
     constructor (game) {
         const height = OPPONENT_HEIGHT * game.width / 100,
@@ -22,7 +22,7 @@ class Opponent extends Character {
     /**
      * Crea un nuevo disparo
      */
-shoot () {
+    shoot () {
         if (!this.dead && !this.game.ended) {
             if (!this.game.paused) {
                 this.game.shoot(this);
@@ -62,13 +62,13 @@ shoot () {
     /**
      * Mata al oponente
      */
-    die() {
+    collide() {
         
         if (!this.dead) {
             setTimeout(() => {
                 this.game.removeOpponent();
             }, 2000);
-            super.die();
+            super.collide();
         }
 
     }
