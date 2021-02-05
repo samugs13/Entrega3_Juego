@@ -13,8 +13,8 @@ class Shot extends Entity {
         const x = character.x + character.width / 2 - width / 2;
         const y = character.y + character.height - character.height / 2;
         const speed = SHOT_SPEED;
-        const myImage = character instanceof Player ? SHOT_PICTURE_PLAYER : SHOT_PICTURE_OPPONENT;
-        super(game, width, height, x, y, speed, myImage);
+        const myImageSrc = character instanceof Player ? SHOT_PICTURE_PLAYER : SHOT_PICTURE_OPPONENT;
+        super(game, width, height, x, y, speed, myImageSrc);
         this.type = character instanceof Player ? "PLAYER" : "ENEMY"; // Tipo del personaje que lanza el disparo
     }
     /**

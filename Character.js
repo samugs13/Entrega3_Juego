@@ -11,20 +11,20 @@ class Character extends Entity {
      * @param x {Number} Posición horizontal del personaje
      * @param y {Number} Posición vertical del personaje
      * @param speed {Number} Velocidad del personaje
-     * @param myImage {String} Ruta de la imagen del personaje
-     * @param myImageDead {String} Ruta de la imagen del personaje cuando muere
+     * @param myImageSrc {String} Ruta de la imagen del personaje
+     * @param myImageDeadSrc {String} Ruta de la imagen del personaje cuando muere
      */
-    constructor (game, width, height, x, y, speed, myImage, myImageDead) {
-        super(game, width, height, x, y, speed, myImage);
+    constructor (game, width, height, x, y, speed, myImageSrc, myImageDeadSrc) {
+        super(game, width, height, x, y, speed, myImageSrc);
         this.dead = false; // Indice si el personaje está vivo o muerto
-        this.myImageDead = myImageDead;
+        this.myImageDeadSrc = myImageDeadSrc;
     }
 
     /**
      * Mata a un personaje
      */
     collide() {
-        this.image.src = this.myImageDead;
+        this.image.src = this.myImageDeadSrc;
         this.dead = true;
     }
 }

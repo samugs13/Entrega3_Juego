@@ -10,18 +10,18 @@ class Entity {
      * @param x {Number} Posición horizontal del elemento
      * @param y {Number} Posición vertical del elemento
      * @param speed {Number} Velocidad del elemento
-     * @param myImage {String} Ruta de la imagen del elemento
+     * @param myImageSrc {String} Ruta de la imagen del elemento
      */
-    constructor (game, width, height, x, y, speed, myImage) {
+    constructor (game, width, height, x, y, speed, myImageSrc) {
         this.game = game;
         this.width = width;
         this.height = height;
         this.x = x;
         this.y = y;
         this.speed = speed;
-        this.myImage = myImage;
+        this.myImageSrc = myImageSrc;
         this.image = new Image();
-        this.image.src = this.myImage;
+        this.image.src = this.myImageSrc;
         this.image.className =  this.constructor.name;
         this.image.style.position = "absolute";
         this.image.style.height = this.height === "auto" ? "auto" : `${this.height}px`;
