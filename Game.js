@@ -17,6 +17,7 @@ class Game {
         this.opponentShots = []; // Disparos del oponente
         this.xDown = null; //  Posición en la que el usuario ha tocado la pantalla
         this.paused = false; // Indica si el juego está pausado
+        this.score = 0; //Indica la puntuacion
     }
 
     /**
@@ -83,10 +84,17 @@ class Game {
      * Elimina al oponente del juego
      */
     removeOpponent () {
-        if (this.opponent) {
-            document.body.removeChild(this.opponent.image);
-        }
-        this.opponent = new Opponent(this);
+
+            if (this.opponent) {
+                document.body.removeChild(this.opponent.image);
+            }
+
+            if (this.opponent instanceof Boss) {
+                this.game.endGame();
+            }
+            else if (this.opponent instanceof Opponent){
+                this.opponent = new Boss(this);
+            }
     }
 
     /**
@@ -203,9 +211,16 @@ class Game {
      * Termina el juego
      */
     endGame () {
+
         this.ended = true;
-        let gameOver = new Entity(this, this.width / 2, "auto", this.width / 4, this.height / 4, 0, GAME_OVER_PICTURE)
-        gameOver.render();
+
+        if(this.player.lives===0){
+            let gameOver = new Entity(this, this.width / 2, "auto", this.width / 4, this.height / 4, 0, GAME_OVER_PICTURE);
+            gameOver.render();
+        }
+        else{
+            let youwin = new Entity(this, this.width / 2, "auto", this.width / 4, this.height / 4, 0, YOU_WIN_PICTURE);
+            youwin.render();}
     }
 
     /**
@@ -226,6 +241,8 @@ class Game {
             });
             this.checkCollisions();
             this.render();
+            this.puntos();
+            this.vidas();
         }
     }
 
@@ -243,5 +260,13 @@ class Game {
         this.opponentShots.forEach((shot) => {
             shot.render();
         });
+    }
+
+    puntos (){
+        document.getElementById("scoreli").innerHTML = "Score: " + this.score;
+    }
+
+    vidas (){
+        document.getElementById("livesli").innerHTML = "Lives: " + this.player.lives;
     }
 }
